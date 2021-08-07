@@ -23,9 +23,6 @@ namespace EasyNoSQL.MongoDB
 
             if (typeof(T).BaseType != typeof(ModelBase))
                 throw new Exception("model object must Inheritance ModelBase");
-
-            if (typeof(T).GetMembers().Select(x => x.Name == "id").Count() == 0)
-                throw new Exception("model object must have a member _id");
         }
         public List<T> Find(Expression<Func<T, bool>> predicate)
         {
